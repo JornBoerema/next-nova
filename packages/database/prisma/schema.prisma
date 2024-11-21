@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// This is a example model.
+// Delete it and add your own Prisma models.
+model Post {
+  id      Int    @id @default(autoincrement())
+  title   String
+  slug    String @unique
+  content String @db.Text
+}
